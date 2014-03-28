@@ -1,0 +1,184 @@
+Introducción ED
+
+Usamos ED para representar datos estructuralmente.
+
+- Recursión 
+  - Listas
+
+Muchos tipos de estructuras de datos.
+
+Listas
+  -Invariante, son de tamaño variable.
+[a] -> [] | a:[a]
+	      |_| <- Aca se marca la recursión.
+
+Colores
+
+data Color -> Azul | Amarillo | Rojo
+	      |_____________________| <- Constructores.
+
+Tuplas
+  -Precondición, son de tamaño fijo.
+  
+(a,b) -> (a,b)
+
+Árboles
+
+data Tree a = EmptyT | Node a (Tree a) (Tree a)
+
+Ejercicio 1
+
+Dada una tupla retornar su primer elemento
+
+first :: (a,b) -> a
+first (x,y) = x
+
+Ejercicio 2
+
+Dada una tupla retornar su segundo elemento
+
+second :: (a,b) -> b
+second (x,y) = y
+
+Ejercicio 3
+
+Dada una tupla retornar su elemento máximo
+
+max' :: (Int, Int) -> Int
+max' (x,y) = if x > y then x else y
+
+Ejercicio 4
+
+Dada una tupla retornar su elemento minimo
+
+min' :: (Int, Int) -> Int
+min' (x,y) = if x < y then x else y
+
+DENTRO DE GHCI
+
+:r -> recarga el archivo en la cmd line.
+:type funcion -> muestra los tipos inferidos de input y output.
+
+Listas
+
+  - Funciones clásicas de Listas
+  
+    Lista vacía
+    
+    null' : [a] -> Bool
+    null' [] = True
+    null' (x:xs) = False
+    
+    Primer elemento de la lista
+    
+    --Precondición not (null xs)
+    
+    head' : [a] -> a
+    head' [] = undefined
+    head' (x:xs) = x
+    
+    Cola de la lista
+    
+    tail' : [a] -> [a]
+    tail' (x:xs) = xs
+    
+    Cantidad elementos de la lista
+    
+    length' :: [a] -> Int
+    length' [] = 0
+    length' (x:xs) = 1 + lenght' xs
+    
+    Quita los primeros N elementos de una lista
+      --Precondición n <= len
+      
+    drop' :: Int -> [a] -> [a]
+    drop' 0 xs  = xs
+    drop' n (x:xs) = drop' (n-1) xs
+    
+    Tomar los primeros N elementos de una lista
+      --Precondición n <= len
+    
+    take' :: Int -> [a] -> [a]
+    take' 0 xs = []
+    take' n (x:xs) = x : (take' (n-1) xs)
+    
+    Separar la lista en dos partes a partir del enésimo elemento
+      --Prec n<=len
+    
+    split :: Int -> [a] -> ([a],[a])
+    split n xs = (take' n xs, drop' n xs)
+    
+      Concatenar listas
+    
+    append' :: [a] -> [a] -> [a]
+    append' [] ys = ys
+    append [x] ys = x: ys
+    append' (x:xs) ys = x:(append' xs ys)
+    
+      Colocar un elemento al final de la lista.
+    
+    snoc' :: [a] -> a -> [a]
+    snoc' xs x = append' xs [x]
+    
+      Dar vuelta una lista
+      
+    reverse' :: [a] -> [a]
+    reverse' [] = []
+    reverse' (x,xs) = snoc' (reverse' xs) x
+    
+      Obtener el último elemento de una lista
+      
+    last' :: [a] -> a
+    last' [x] = x
+    last' (x:xs) = last' xs
+    
+ - Precondicion len xs == len ys
+ 
+ zip' :: [a] -> [b] -> [(a,b)]
+ zip' [] [] = []
+ zip' (x:xs) (y:ys) = (x,y) : zip' xs ys 
+ 
+ TAREA!! Reescribir head, tail, drop, take, split, last para que dejen de ser funciones parciales y pasen a ser totales. USANDO MAYBES!
+ Y ESTO TAMBIÉN!
+ 
+ maximum' :: [Int] -> Int
+ maximum' [x] = x
+ maximum' (x:xs) = max' (x maximum' xs)
+ 
+ flatten :: [[a]] -> [a]
+ flatten [] = []
+ flatten (x:xs) = append' x (flatten xs)
+ 
+ ej [[1,2],[5,4]] -> [1,2,5,4]
+ 
+ Maybes
+  
+  Puedo tener un dato o no tenerlo
+  
+  data Maybe a = Just a | Nothing
+  
+  headM :: [a] -> Maybe a
+  headM [] = Nothing 
+  headM (x:_) = Just x
+  
+  tailM :: [a] -> Maybe [a]
+  tailM [] = Nothing
+  tailM (x:xs) = Just xs
+  
+  quita los primeros n elementos de la lista
+  
+  dropM :: Int -> [a] -> Maybe [a]
+  dropM _ [] = Nothing
+  dropM 0 xs = Just xs
+  dropM n (x:xs) = dropM (n-1) xs
+
+  toma los primeros n elementos de la lista
+  
+  takeM :: Int -> [a] -> Maybe [a]
+  
+  takeM n (x:xs) =
+  
+  lastM :: [a] -> Maybe a
+  lastM [] = Nothing
+  lastM [x] = Just x
+  lastM (x:xs) = lastM xs

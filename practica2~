@@ -1,0 +1,42 @@
+data Color = Rojo | Azul | Verde | Negro deriving (Show)
+
+siguiente :: Color -> Color
+siguiente Azul = Negro
+siguiente Negro = Rojo
+siguiente Rojo = Verde
+siguiente Verde = Azul
+
+data Sexo = Masculino | Femenino deriving (Show)
+
+data Persona = MkPersona Int String Sexo -- ( CONSTRUCTOR DE PERSONA )
+
+-- MkPersona :: Int -> String -> Persona 
+
+cumplirAños :: Persona -> Persona
+cumplirAños (MkPersona e n s) = MkPersona (e+1) n s
+
+cambiarNombre :: Persona -> String -> Persona
+cambiarNombre (MkPersona e _) n s = MkPersona e n s
+
+esEgresado :: Persona -> Bool
+esEgresado (MkPersona e _ _) = e > 18
+
+Representar una fila de Gobstones
+
+data Color = Rojo | Azul | Verde | Negro deriving (Show)
+data Dir = Norte | Sur | Este | Oeste deriving (Show)
+data Celda = MkCelda {
+  azules :: Int,
+  rojas :: Int,
+  verdes :: Int,
+  negras :: Int
+} deriving (Show)
+
+type Fila = [Celda]
+
+celdaVacia :: Celda
+celdaVacia = MkCelda 0 0 0 0
+
+filaVacia :: Int -> Fila
+filaVacia 0 = []
+filaVacia n = celdaVacia : (filaVacia (n-1))

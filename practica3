@@ -1,0 +1,7 @@
+data Tree a = EmptyT | NodeT a (Tree a) (Tree a)
+
+ocurrsT :: Eq a => a -> Tree a -> Bool -- Eq a restringe el tipo de a para que sólo sean tipos comparables.
+occursT x EmptyT = False
+occursT x (NodeT r t1 t2) = if x == r then True else (occursT x t1) || (occursT x t2)
+
+
