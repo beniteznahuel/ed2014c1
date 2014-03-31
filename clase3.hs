@@ -26,3 +26,18 @@ minT (NodeT r t1 t2) = min r (min (minT t1) (minT t2))
 tree2list :: Tree a -> [a]
 tree2list EmptyT = []
 tree2list (NodeT r t1 t2) = r : ((tree2list t1) ++ (tree2list t2))
+
+levelT :: Tree a -> Int -> [a]                                     
+levelT EmptyT n = []
+levelT t 0 = []
+levelT (NodeT x t1 t2) n = if n == 1 then [x] else levelT t1 (n-1) ++ levelT t2 (n-1)
+
+levels :: Tree a -> [[a]]
+levels EmptyT = []
+levels (NodeT r EmptyT EmptyT) = [[r]]
+levels (NodeT r t1 EmptyT) = [r] : (levels t1)
+levels (NodeT r EmptyT t2) = [r] : (levels t2)
+levels (NodeT r t1 t2) = [[r]] ++ ((levels t1)++(levels t2))
+
+
+  
