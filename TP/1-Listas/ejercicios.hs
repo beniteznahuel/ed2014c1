@@ -51,7 +51,7 @@ sumaPar [] = []
 sumaPar ((x1,x2):xs) = (x1+x2) : sumaPar xs
 
 data Fecha = MkFecha{
-  año :: Int,
+  anho :: Int,
   mes :: Int,
   dia :: Int
   } deriving (Show)
@@ -63,8 +63,8 @@ data Persona = MkPersona{
   } deriving (Show)
   
 nacioAntesDe :: Fecha -> Persona -> Bool
-nacioAntesDe (MkFecha a m d) (MkPersona _ _ f) | año f > a = False
-					       | año f < a = True
+nacioAntesDe (MkFecha a m d) (MkPersona _ _ f) | anho f > a = False
+					       | anho f < a = True
 	                                       | mes f > m = False
 					       | mes f < m = True
 	                                       | dia f > d = False
@@ -158,6 +158,10 @@ maximum' (x:xs) = max x (maximum' xs)
 fromJust :: Maybe a -> a
 fromJust (Just x) = x
 
+mLookUp :: [String] -> String -> Maybe Int
+mLookUp [] _ = Nothing
+mLookUp (x:xs) s = if x == s then Just 1 else Just (1 + (fromJust (mLookUp xs s)))
+
 mInit :: [a] -> Maybe [a]
 mInit [] = Nothing
 mInit [x] = Just []
@@ -167,6 +171,10 @@ mLast :: [a] -> Maybe a
 mLast [] = Nothing
 mLast [x] = Just x
 mLast (x:xs) = mLast xs
+
+takeExactlyN :: [a] -> Int -> Maybe [a]
+takeExactlyN xs 0 = Just []
+takeExactlyN l@(x:xs) n = if (length l) < n then Nothing else Just (x: (fromJust (takeExactlyN  xs (n-1))))
 
 dropExactlyN :: [a] -> Int -> Maybe [a]
 dropExactlyN [] _ = Nothing
