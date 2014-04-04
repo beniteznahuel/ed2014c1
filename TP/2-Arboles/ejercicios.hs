@@ -21,3 +21,6 @@ levelT :: Tree a -> Int -> [Tree a]
 levelT EmptyT _ = [] 
 levelT t 1 = [t]
 levelT (NodeT r t1 t2) n = (levelT t1 (n-1)) ++ (levelT t2 (n-1))
+
+tree2listPerLevel :: Tree Int -> [[Int]]
+tree2listPerLevel (NodeT r t1 t2) = (tree2listPerLevel t1) ++ (tree2listPerLevel t2)

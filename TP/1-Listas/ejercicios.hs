@@ -154,13 +154,17 @@ valorParaClave ((xa,xb):xs) a | xa == a = xb
 maximum' :: [Int] -> Int
 maximum' [] = 0
 maximum' (x:xs) = max x (maximum' xs) 
-
+s
 fromJust :: Maybe a -> a
 fromJust (Just x) = x
 
+isIn :: [String] -> String -> Bool
+isIn [] s = False
+isIn (x:xs) s = if s == x then True else isIn xs s 
+
 mLookUp :: [String] -> String -> Maybe Int
 mLookUp [] _ = Nothing
-mLookUp (x:xs) s = if x == s then Just 1 else Just (1 + (fromJust (mLookUp xs s)))
+mLookUp l@(x:xs) s = if isIn l s then (if x == s then Just 1 else Just (1 + (fromJust (mLookUp xs s)))) else Nothing
 
 mInit :: [a] -> Maybe [a]
 mInit [] = Nothing
