@@ -23,4 +23,10 @@ levelT t 1 = [t]
 levelT (NodeT r t1 t2) n = (levelT t1 (n-1)) ++ (levelT t2 (n-1))
 
 tree2listPerLevel :: Tree Int -> [[Int]]
-tree2listPerLevel (NodeT r t1 t2) = (tree2listPerLevel t1) ++ (tree2listPerLevel t2)
+tree2listPerLevel EmptyT = []
+tree2listPerLevel (NodeT r t1 t2) = [r] : zipConcat (tree2listPerLevel t1) (tree2listPerLevel t2)
+
+zipConcat :: [[a]] -> [[a]] -> [[a]]
+zipConcat xs [] = xs
+zipConcat [] ys = ys
+zipConcat (x:xs) (y:ys) = (x++y) : (zipConcat xs ys)
