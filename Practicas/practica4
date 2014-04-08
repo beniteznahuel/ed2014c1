@@ -1,0 +1,47 @@
+Estructuras abstractas
+
+Set
+
+empty :: a
+belongs :: S -> Int -> Bool
+add :: S -> Int -> S
+remove :: S -> Int -> S
+size :: S -> Int
+
+La implementación de la interfaz depende del contexto, osea, podría necesitar el add rapido o el remove rapido.
+
+-- VERSION QUE NO ADMITE REPETIDOS
+
+data SetListNoReps = SLNR [Int]
+
+instance Set SetListNoReps where
+  empty = SLNR []
+  belongs (SLNR xs) n = elem n xs
+  add (SLNR xs) n | elem n xs = SLNR xs
+		  | otherwise = SLNR (n:xs)
+  remove (SLNR xs) n = SLNR (remove' xs n)
+  size (SLNR xs) = length xs
+  
+remove' :: [Int] -> Int -> [Int]
+remove' [] _ = []
+remove' (x:xs) n | x == n = xs
+                 | otherwise = x:(remove' xs n)
+                 
+-- VERSION QUE ADMITE REPETIDOS
+
+data SetListWithReps = SLWR [Int]
+
+instance Set SetListWithReps where
+  empty = SLWR []
+  belongs (SLWR xs) n = elem n xs
+  add (SLWR xs) n = SLWR (n:xs)
+  remove (SLWR xs) n = SLWR (remove'' xs n)
+  size (SLWR xs) = size' xs
+  
+size' [] = 0
+size' (x:xs) | elem x xs = size' xs
+             | otherwise = 1 + size' xs
+             
+remove'' :: [] n = []
+remove'' (x:xs) n | x==n = remove'' xs n
+		  | otherwise = x:(remove'' xs n)
