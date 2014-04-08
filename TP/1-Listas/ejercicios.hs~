@@ -163,7 +163,7 @@ mLookUp [] _ = Nothing
 mLookUp xs s = mLookUpAux xs s 0 
   
 mLookUpAux :: [String] -> String -> Int -> Maybe Int
-mLookUpAux [x] s c = if x == s then Just c else Nothing 
+mLookUpAux [x] s c = if x == s then Just (c+1) else Nothing 
 mLookUpAux (x:xs) s c | x == s = Just (c+1)
 		      | otherwise = (mLookUpAux xs s (c+1))
 

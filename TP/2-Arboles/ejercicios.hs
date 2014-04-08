@@ -30,3 +30,5 @@ zipConcat :: [[a]] -> [[a]] -> [[a]]
 zipConcat xs [] = xs
 zipConcat [] ys = ys
 zipConcat (x:xs) (y:ys) = (x++y) : (zipConcat xs ys)
+
+occursT :: Tree a -> 
