@@ -45,3 +45,8 @@ size' (x:xs) | elem x xs = size' xs
 remove'' :: [] n = []
 remove'' (x:xs) n | x==n = remove'' xs n
 		  | otherwise = x:(remove'' xs n)
+		  
+belonging :: Set s => [Int] -> S -> [Int]
+belonging [] s = []
+belonging (x:xs) | belong s x = x:(belonging xs s)
+                 | otherwise = belonging xs s

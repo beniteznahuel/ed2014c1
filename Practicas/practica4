@@ -50,3 +50,7 @@ belonging :: Set s => [Int] -> S -> [Int]
 belonging [] s = []
 belonging (x:xs) | belong s x = x:(belonging xs s)
                  | otherwise = belonging xs s
+                 
+-- TAREA, implementar la misma interfaz para la siguiente estructura abstracta
+
+data SetListSortedSize = SLSS [Int] Int --Ordenada de menor a mayor
