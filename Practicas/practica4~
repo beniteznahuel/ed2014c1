@@ -26,3 +26,22 @@ remove' :: [Int] -> Int -> [Int]
 remove' [] _ = []
 remove' (x:xs) n | x == n = xs
                  | otherwise = x:(remove' xs n)
+                 
+-- VERSION QUE ADMITE REPETIDOS
+
+data SetListWithReps = SLWR [Int]
+
+instance Set SetListWithReps where
+  empty = SLWR []
+  belongs (SLWR xs) n = elem n xs
+  add (SLWR xs) n = SLWR (n:xs)
+  remove (SLWR xs) n = SLWR (remove'' xs n)
+  size (SLWR xs) = size' xs
+  
+size' [] = 0
+size' (x:xs) | elem x xs = size' xs
+             | otherwise = 1 + size' xs
+             
+remove'' :: [] n = []
+remove'' (x:xs) n | x==n = remove'' xs n
+		  | otherwise = x:(remove'' xs n)
