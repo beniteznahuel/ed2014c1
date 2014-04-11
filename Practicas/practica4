@@ -15,11 +15,21 @@ La implementación de la interfaz depende del contexto, osea, podría necesitar 
 data SetListNoReps = SLNR [Int]
 
 instance Set SetListNoReps where
+
+  empty :: S
   empty = SLNR []
+  
+  belongs :: S -> a -> Bool
   belongs (SLNR xs) n = elem n xs
+  
+  add :: S -> a -> S
   add (SLNR xs) n | elem n xs = SLNR xs
 		  | otherwise = SLNR (n:xs)
+		  
+  remove :: S -> a -> S
   remove (SLNR xs) n = SLNR (remove' xs n)
+  
+  size :: S -> Int
   size (SLNR xs) = length xs
   
 remove' :: [Int] -> Int -> [Int]
@@ -53,4 +63,27 @@ belonging (x:xs) | belong s x = x:(belonging xs s)
                  
 -- TAREA, implementar la misma interfaz para la siguiente estructura abstracta
 
-data SetListSortedSize = SLSS [Int] Int --Ordenada de menor a mayor
+data SetListSortedSize = SLSS [Int] Int --Ordenada de menor a mayor, el �ltimo Int es el size.
+
+instance Set SetListSortedSize where 
+  
+  empty :: 
+  empty = SLSS [] 0
+  belongs (SLSS xs _) e = elem e xs
+  add (SLSS xs c) e | elem e xs = (SLSS xs c)
+                    | otherwise = SLSS (addInPositiion xs e) (c+1)
+  remove (SLSS xs c) e | elem e xs = (SLSS xs c)
+                       | otherwise = SLSS (deleteElem xs e) (c-1)
+  size (SLSS _ c) _ = c
+  
+  addInPositiion :: [Int] -> Int -> [Int]
+  addInPositiion EmptyT e = [e]
+  addInPositiion (x:xs) e | e > x = [x] ++ (addInPositiion xs e)
+                          | otherwise = e:x:xs
+                          
+  deleteElem :: [Int] -> Int -> [Int]
+  deleteElem [] _ = []
+  deleteElem (x:xs) e | x == e = xs
+                      | otherwise = x:(deleteElem xs e)
+                      
+                      

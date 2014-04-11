@@ -22,6 +22,18 @@ levelT EmptyT _ = []
 levelT t 1 = [t]
 levelT (NodeT r t1 t2) n = (levelT t1 (n-1)) ++ (levelT t2 (n-1))
 
+traverseInOrder :: Tree a -> [a]
+traverseInOrder EmptyT = []
+traverseInOrder (NodeT r t1 t2) = r : (traverseInOrder t1) ++ (traverseInOrder t2)
+
+traversePreOrder :: Tree a -> [a]
+traversePreOrder EmptyT = []
+traversePreOrder (NodeT r t1 t2) = (traversePreOrder t1) ++ [r] ++ (traversePreOrder t2)
+
+traversePosOrder :: Tree a -> [a]
+traversePosOrder EmptyT = []
+traversePosOrder (NodeT r t1 t2) = (traversePosOrder t1) ++ (traversePosOrder t2) ++ [r]
+
 tree2listPerLevel :: Tree Int -> [[Int]]
 tree2listPerLevel EmptyT = []
 tree2listPerLevel (NodeT r t1 t2) = [r] : zipConcat (tree2listPerLevel t1) (tree2listPerLevel t2)
@@ -31,7 +43,10 @@ zipConcat xs [] = xs
 zipConcat [] ys = ys
 zipConcat (x:xs) (y:ys) = (x++y) : (zipConcat xs ys)
 
--- occursT :: Tree a -> 
+occursT :: Eq a => Tree a -> a -> Bool
+occursT EmptyT _ = False
+occursT (NodeT r t1 t2) e | r == e = True
+			  | otherwise = (occursT t1 e) || (occursT t2 e)
 
 data Expr = Const Int | Var String | UnExp UnOp Expr | BinExp BinOp Expr Expr
 data UnOp = Neg
@@ -85,3 +100,8 @@ evalBinExp' Mul (Just i) (Just d) = Just (i*d)
 evalBinExp' Div (Just i) (Just d) | d == 0 = Nothing
 				  | otherwise = Just (i `div` d)
 evalBinExp' _ _ _ = Nothing
+
+addInPosition :: [Int] -> Int -> [Int]
+addInPosition [] e = [e]
+addInPosition (x:xs) e | e > x = [x] ++ (addInPosition xs e)
+                        | otherwise = e:x:xs
