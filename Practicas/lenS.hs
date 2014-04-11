@@ -1,0 +1,6 @@
+import StackInterface
+import StackList
+
+lenS :: StackList s -> Int
+lenS s | isEmptyS s = 0
+       | otherwise = 1 + lenS (popS s)

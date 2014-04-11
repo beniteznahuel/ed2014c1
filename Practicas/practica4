@@ -32,10 +32,10 @@ instance Set SetListNoReps where
   size :: S -> Int
   size (SLNR xs) = length xs
   
-remove' :: [Int] -> Int -> [Int]
-remove' [] _ = []
-remove' (x:xs) n | x == n = xs
-                 | otherwise = x:(remove' xs n)
+  remove' :: [Int] -> Int -> [Int]
+  remove' [] _ = []
+  remove' (x:xs) n | x == n = xs
+                   | otherwise = x:(remove' xs n)
                  
 -- VERSION QUE ADMITE REPETIDOS
 
@@ -48,42 +48,50 @@ instance Set SetListWithReps where
   remove (SLWR xs) n = SLWR (remove'' xs n)
   size (SLWR xs) = size' xs
   
-size' [] = 0
-size' (x:xs) | elem x xs = size' xs
-             | otherwise = 1 + size' xs
+  size' [] = 0
+  size' (x:xs) | elem x xs = size' xs
+               | otherwise = 1 + size' xs
              
-remove'' :: [] n = []
-remove'' (x:xs) n | x==n = remove'' xs n
-		  | otherwise = x:(remove'' xs n)
+  remove'' :: [] n = []
+  remove'' (x:xs) n | x==n = remove'' xs n
+                    | otherwise = x:(remove'' xs n)
 		  
-belonging :: Set s => [Int] -> S -> [Int]
-belonging [] s = []
-belonging (x:xs) | belong s x = x:(belonging xs s)
-                 | otherwise = belonging xs s
+  belonging :: Set s => [Int] -> S -> [Int]
+  belonging [] s = []
+  belonging (x:xs) | belong s x = x:(belonging xs s)
+                   | otherwise = belonging xs s
                  
 -- TAREA, implementar la misma interfaz para la siguiente estructura abstracta
 
-data SetListSortedSize = SLSS [Int] Int --Ordenada de menor a mayor, el último Int es el size.
+data SetListSortedSize = SLSS [Int] Int --Ordenada de menor a mayor, el ultimo Int es el size.
 
 instance Set SetListSortedSize where 
   
-  empty :: 
+  empty :: S 
   empty = SLSS [] 0
+  
+  belongs :: S -> Int -> Bool
   belongs (SLSS xs _) e = elem e xs
+  
+  add :: S -> Int -> S
   add (SLSS xs c) e | elem e xs = (SLSS xs c)
                     | otherwise = SLSS (addInPositiion xs e) (c+1)
+                    
+  remove :: S -> Int -> S                  
   remove (SLSS xs c) e | elem e xs = (SLSS xs c)
                        | otherwise = SLSS (deleteElem xs e) (c-1)
-  size (SLSS _ c) _ = c
+                       
+  size :: S -> Int
+  size (SLSS _ c) = c
   
-  addInPositiion :: [Int] -> Int -> [Int]
-  addInPositiion EmptyT e = [e]
-  addInPositiion (x:xs) e | e > x = [x] ++ (addInPositiion xs e)
+addInPositiion :: [Int] -> Int -> [Int]
+addInPositiion EmptyT e = [e]
+addInPositiion (x:xs) e | e > x = [x] ++ (addInPositiion xs e)
                           | otherwise = e:x:xs
-                          
-  deleteElem :: [Int] -> Int -> [Int]
-  deleteElem [] _ = []
-  deleteElem (x:xs) e | x == e = xs
-                      | otherwise = x:(deleteElem xs e)
+
+deleteElem :: [Int] -> Int -> [Int]
+deleteElem [] _ = []
+deleteElem (x:xs) e | x == e = xs
+                    | otherwise = x:(deleteElem xs e)
                       
                       
