@@ -1,5 +1,5 @@
 import SetInterface
 import SetListSortedSize
 
-unaLista :: SetListSortedSize
-unaLista = empty
+unaListaVacia :: SetListSortedSize
+unaListaVacia = empty
