@@ -1,5 +1,5 @@
 import SetInterface
 import SetListSortedSize
 
-unaListaVacia :: SetListSortedSize
-unaListaVacia = empty
+tamanio :: Int 
+tamanio = size (add (empty :: SetListSortedSize) 2)
