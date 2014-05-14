@@ -1,0 +1,129 @@
+Modelo Impuro (C/C++)				       |
+						       |
+Compilación separada				       |
+						       |
+    Archivo .h -> Interfaz, Declaraciones de tipo      |
+						       |
+    Archivo .c -> Código			       |
+    Proyecto -> Compilar			       |
+	     -> Linkear (.c ...)		       |
+	     -> Ejecutar			       |
+						       |
+  main.c					       |
+						       |
+  #include "... .h"                                    |
+                                                       |
+     COMPILAR      LINKEAR                             |
+  .c    ->    .o     ->    .exe                        |
+  .h    ->                                             |
+                                                       |
+--------------------------------------------------------
+
+			IDE
+			
+			
+Efecto colateral = MODIFICACIÓN DE MEMORIA INDESEADA
+
+2 Tipos de memoria
+
+Memoria Stack/Estática = Se organiza en stack frames,  
+
+Memoria Heap
+
+int f(int z){
+  int w;
+  w = succ(z) + succ (z)
+  return(w);
+}
+
+void PonerN(int n) 
+{
+  ...
+}
+
+int succ(int y)
+  {return (y+1)}
+  
+int f(int z)
+{
+  z = succ(z);
+  return(z+z);
+}
+
+int g(int z)
+{
+  int w;
+  w = succ(z);
+  return(w+w+z)
+}
+
+int f(int z)
+{
+  int w;
+  w = succ(z);
+  return(w+w);
+}
+
+int main()
+{
+  int x; cout << x << endl;
+  x = 10; cout << x << endl;
+  x = succ(x); cout << x;
+}
+
+----------------------------------------------------
+
+int fact(int y)
+{
+  if(y==0)
+    return 1;
+  else 
+    return (fact(y-1)*y);
+}
+
+CREANDO POKEMONS
+
+HASKELL
+
+data Pokemon = P String String Int 
+	      -- Nombre  Tipo  lvl
+	   
+	P "Pikachu" "Electrico" 3
+
+-------------------------------------------
+struct PokeS{       			   |
+  string nombre;      			   |
+  string tipo;        			   |    Pokemon.h
+  int lvl;            			   |
+};                    			   |
+                                           |
+typedef PokeStruct* Pokemon;               |
+					   |
+Pokemon Catchem(string n, string t, int l);|
+void subirNivel(Pokemon& p);               |
+-------------------------------------------
+
+---------------------------------------------|
+#include "Pokemon.h"			     |
+					     |
+Pokemon Catchem(string n, string t, int l){  |
+  Pokemon q = new PokeStruct;                |
+  q -> nombre = n;                           |
+  q -> tipo = t;                             |
+  q -> lvl = l;                              |   Pokemon.c
+  return q;                                  |
+}                               	     |
+                                             |
+Pokemon subirNivel(Pokemon& p){              |
+  p.nivel = p.nivel + 1;                     |
+}					     |
+---------------------------------------------|
+#include "Pokemon.h"
+
+int main(){
+  Pokemon pikachu = Catchem("Pikachu", "eléctrico", 3); //Reserva memoria para las variables del struct, en este caso 2 string y 1 int.
+  pikachu = subirNivel(pikachu);
+}
+
+
+Memoria Heap = (NEW | DELETE) --> PUNTEROS *
