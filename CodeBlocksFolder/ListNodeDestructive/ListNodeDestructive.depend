@@ -1,0 +1,11 @@
+# depslib dependency file v1.0
+1400852714 source:/home/nahuel/TPI/ED/ed2014c1/CodeBlocksFolder/ListNodeDestructive/ListNodeDestructive.cpp
+	"ListNodeDestructive.h"
+
+1400852660 /home/nahuel/TPI/ED/ed2014c1/CodeBlocksFolder/ListNodeDestructive/ListNodeDestructive.h
+	<iostream>
+
+1400852845 source:/home/nahuel/TPI/ED/ed2014c1/CodeBlocksFolder/ListNodeDestructive/main.cpp
+	<iostream>
+	"ListNodeDestructive.h"
+
