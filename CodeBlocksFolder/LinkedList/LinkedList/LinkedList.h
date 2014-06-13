@@ -2,10 +2,10 @@
 #define ELEM_TYPE int
 
 struct ListStr;
-struct RecorridoStr{
-    listNode* current;
-};
 typedef ListStr* List;
+struct RecorridoStr{
+    List current;
+};
 typedef listNode* Recorrido;
 
 // INTERFAZ LISTA
