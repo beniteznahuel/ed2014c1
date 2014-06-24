@@ -1,0 +1,15 @@
+# depslib dependency file v1.0
+1403015016 source:/home/nahuel/TPI/ED/ed2014c1/TPFinal/EjemploTesting/arraylist.cpp
+	<iostream>
+	<sstream>
+	"arraylist.h"
+
+1403015016 /home/nahuel/TPI/ED/ed2014c1/TPFinal/EjemploTesting/arraylist.h
+	<string>
+
+1403015016 source:/home/nahuel/TPI/ED/ed2014c1/TPFinal/EjemploTesting/arraylist.test.cpp
+	"arraylist.h"
+	<iostream>
+	<stdlib.h>
+	<assert.h>
+

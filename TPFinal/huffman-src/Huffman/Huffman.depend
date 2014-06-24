@@ -1,0 +1,31 @@
+# depslib dependency file v1.0
+1403017468 source:/home/nahuel/TPI/ED/ed2014c1/TPFinal/huffman-src/CharBag.cpp
+	"CharBag.h"
+	"LinkedList.h"
+
+1402455106 /home/nahuel/TPI/ED/ed2014c1/TPFinal/huffman-src/CharBag.h
+
+1403019468 /home/nahuel/TPI/ED/ed2014c1/TPFinal/huffman-src/LinkedList.h
+	<iostream>
+
+1402667505 source:/home/nahuel/TPI/ED/ed2014c1/TPFinal/huffman-src/CharBagTest.cpp
+	<iostream>
+	"CharBag.h"
+
+1402526814 source:/home/nahuel/TPI/ED/ed2014c1/TPFinal/huffman-src/HuffmanCoding.cpp
+	"CharBag.h"
+	"PriorityQueue.h"
+	"HuffmanTree.h"
+	"ZipTable.h"
+	<iostream>
+	<vector>
+	<fstream>
+
+1402352336 /home/nahuel/TPI/ED/ed2014c1/TPFinal/huffman-src/PriorityQueue.h
+	"HuffmanTree.h"
+
+1402455238 /home/nahuel/TPI/ED/ed2014c1/TPFinal/huffman-src/HuffmanTree.h
+	"ZipTable.h"
+
+1402526386 /home/nahuel/TPI/ED/ed2014c1/TPFinal/huffman-src/ZipTable.h
+
