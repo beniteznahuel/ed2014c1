@@ -1,4 +1,7 @@
 #include "LinkedList.h"
+#include <iostream>
+
+using namespace std;
 
 struct ListStr {
    ELEM_TYPE elem;
@@ -38,6 +41,7 @@ void clear1(List& xs){
     }
     delete(xs);
 }
+
 // Implementación de recorrido.
 
 struct RecorridoStr{
@@ -64,8 +68,4 @@ void next(Recorrido& r){
 
 void finish(Recorrido& r){
     delete(r);
-}
-
-int main(){
-    List l = Nil();
 }

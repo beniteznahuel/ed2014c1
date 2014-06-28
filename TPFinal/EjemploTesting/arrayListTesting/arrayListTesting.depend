@@ -7,9 +7,12 @@
 1403015016 /home/nahuel/TPI/ED/ed2014c1/TPFinal/EjemploTesting/arraylist.h
 	<string>
 
-1403015016 source:/home/nahuel/TPI/ED/ed2014c1/TPFinal/EjemploTesting/arraylist.test.cpp
+1403620491 source:/home/nahuel/TPI/ED/ed2014c1/TPFinal/EjemploTesting/arraylist.test.cpp
 	"arraylist.h"
 	<iostream>
 	<stdlib.h>
 	<assert.h>
+
+1403016011 source:/home/nahuel/TPI/ED/ed2014c1/TPFinal/EjemploTesting/arrayListTesting/main.cpp
+	<iostream>
 

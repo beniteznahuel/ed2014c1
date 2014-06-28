@@ -1,4 +1,3 @@
-
 #include "HuffmanTree.h"
 
 struct PriorityQueueStr;
@@ -21,4 +20,3 @@ void enqueue(PriorityQueue& q, HuffmanTree t);
 // Remueve y retorna el elemento de menor prioridad de la PriorityQueue.
 // Complejidad: O(log(size(q)))
 HuffmanTree dequeue(PriorityQueue& q);
-

@@ -32,7 +32,26 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
-		<Unit filename="main.cpp" />
+		<Unit filename="../CharBag.cpp" />
+		<Unit filename="../CharBag.h" />
+		<Unit filename="../CharBagTest.cpp" />
+		<Unit filename="../CharBagTest.h" />
+		<Unit filename="../HuffmanCoding.cpp" />
+		<Unit filename="../HuffmanTree.cpp" />
+		<Unit filename="../HuffmanTree.h" />
+		<Unit filename="../HuffmanTreeTest.cpp" />
+		<Unit filename="../HuffmanTreeTest.h" />
+		<Unit filename="../LinkedList.cpp" />
+		<Unit filename="../LinkedList.h" />
+		<Unit filename="../LinkedListTest.cpp" />
+		<Unit filename="../LinkedListTest.h" />
+		<Unit filename="../PriorityQueue.cpp" />
+		<Unit filename="../PriorityQueue.h" />
+		<Unit filename="../PriorityQueueTest.cpp" />
+		<Unit filename="../PriorityQueueTest.h" />
+		<Unit filename="../ZipTable.cpp" />
+		<Unit filename="../ZipTable.h" />
+		<Unit filename="../main.cpp" />
 		<Extensions>
 			<code_completion />
 			<debugger />

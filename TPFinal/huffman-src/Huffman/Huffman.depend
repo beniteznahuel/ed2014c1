@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1403017468 source:/home/nahuel/TPI/ED/ed2014c1/TPFinal/huffman-src/CharBag.cpp
+1403916263 source:/home/nahuel/TPI/ED/ed2014c1/TPFinal/huffman-src/CharBag.cpp
 	"CharBag.h"
 	"LinkedList.h"
 
@@ -8,12 +8,13 @@
 1403019468 /home/nahuel/TPI/ED/ed2014c1/TPFinal/huffman-src/LinkedList.h
 	<iostream>
 
-1402667505 source:/home/nahuel/TPI/ED/ed2014c1/TPFinal/huffman-src/CharBagTest.cpp
+1403916827 source:/home/nahuel/TPI/ED/ed2014c1/TPFinal/huffman-src/CharBagTest.cpp
+	"CharBag.h"
+	<stdlib.h>
+	<assert.h>
 	<iostream>
-	"CharBag.h"
 
-1402526814 source:/home/nahuel/TPI/ED/ed2014c1/TPFinal/huffman-src/HuffmanCoding.cpp
-	"CharBag.h"
+1403916132 source:/home/nahuel/TPI/ED/ed2014c1/TPFinal/huffman-src/HuffmanCoding.cpp
 	"PriorityQueue.h"
 	"HuffmanTree.h"
 	"ZipTable.h"
@@ -21,11 +22,65 @@
 	<vector>
 	<fstream>
 
-1402352336 /home/nahuel/TPI/ED/ed2014c1/TPFinal/huffman-src/PriorityQueue.h
+1403874028 /home/nahuel/TPI/ED/ed2014c1/TPFinal/huffman-src/PriorityQueue.h
 	"HuffmanTree.h"
 
 1402455238 /home/nahuel/TPI/ED/ed2014c1/TPFinal/huffman-src/HuffmanTree.h
 	"ZipTable.h"
 
 1402526386 /home/nahuel/TPI/ED/ed2014c1/TPFinal/huffman-src/ZipTable.h
+
+1403905176 source:/home/nahuel/TPI/ED/ed2014c1/TPFinal/huffman-src/LinkedList.cpp
+	"LinkedList.h"
+	<iostream>
+
+1402527208 source:/home/nahuel/TPI/ED/ed2014c1/TPFinal/huffman-src/ZipTable.cpp
+	"ZipTable.h"
+	<iostream>
+	<vector>
+	<fstream>
+	<ctype.h>
+
+1403624939 source:/home/nahuel/TPI/ED/ed2014c1/TPFinal/huffman-src/LinkedListTest.cpp
+	"LinkedList.h"
+	<stdlib.h>
+	<assert.h>
+
+1403918774 source:/home/nahuel/TPI/ED/ed2014c1/TPFinal/huffman-src/main.cpp
+	"LinkedListTest.h"
+	"CharBagTest.h"
+	"PriorityQueueTest.h"
+	<iostream>
+	<stdlib.h>
+	<assert.h>
+
+1403877758 /home/nahuel/TPI/ED/ed2014c1/TPFinal/huffman-src/LinkedListTest.h
+	"LinkedList.h"
+
+1403916892 /home/nahuel/TPI/ED/ed2014c1/TPFinal/huffman-src/CharBagTest.h
+	"CharBag.h"
+
+1403912420 source:/home/nahuel/TPI/ED/ed2014c1/TPFinal/huffman-src/HuffmanTree.cpp
+	"HuffmanTree.h"
+	"ZipTable.h"
+	<iostream>
+
+1403910932 source:/home/nahuel/TPI/ED/ed2014c1/TPFinal/huffman-src/PriorityQueue.cpp
+	"PriorityQueue.h"
+	<iostream>
+	<stdlib.h>
+
+1403919757 source:/home/nahuel/TPI/ED/ed2014c1/TPFinal/huffman-src/HuffmanTreeTest.cpp
+	"HuffmanTree.h"
+	<iostream>
+	<stdlib.h>
+	<assert.h>
+
+1403918757 source:/home/nahuel/TPI/ED/ed2014c1/TPFinal/huffman-src/PriorityQueueTest.cpp
+	"PriorityQueue.h"
+	<iostream>
+	<stdlib.h>
+	<assert.h>
+
+1403918792 /home/nahuel/TPI/ED/ed2014c1/TPFinal/huffman-src/PriorityQueueTest.h
 
