@@ -1,4 +1,4 @@
-/* #include "CharBag.h"
+#include "CharBag.h"
 #include "PriorityQueue.h"
 #include "HuffmanTree.h"
 #include "ZipTable.h"
@@ -87,5 +87,3 @@ int main() {
 	deleteZipTable(table);
 	return 0;
 }
-
-*/

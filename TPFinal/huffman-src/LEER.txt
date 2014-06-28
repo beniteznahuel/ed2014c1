@@ -1,1 +1,4 @@
-El archivo de proyecto de codeblocks es Huffman/Huffman.cbp
+El archivo de proyecto de codeblocks está en Huffman/Huffman.cbp (no le di bola al principio y quedó una carpeta arriba.)
+
+El archivo que tiene el main con los tests es el que llamé main.cpp. Lo dejé todo comentado para que corriése sólo el main que ustedes nos dieron.
+
