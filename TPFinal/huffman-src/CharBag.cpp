@@ -1,7 +1,7 @@
 #include "CharBag.h"
 #include "LinkedList.h"
 
-/*Inv.Rep: -Las ocurrencias deben ser valores mayores a cero-
+/*Inv.Rep: -Las ocurrencias deben ser valores mayores a cero.
            -Los caracteres no pueden repetirse en la lista.*/
 
 struct CharBagStr{
@@ -19,7 +19,7 @@ CharBag emptyCharBag(int n){
 }
 
 void deleteCharBag(CharBag& bag){
-    delete(bag->caracteres);
+    clear1(bag->caracteres);
     delete[] (bag->ocurrencias);
     delete(bag);
 }
@@ -79,5 +79,3 @@ char currentChar(CharBagIterator it){
 int currentCount(CharBagIterator it){
     return it->ocurrencias[getCurrent(it->r)];
 }
-
-

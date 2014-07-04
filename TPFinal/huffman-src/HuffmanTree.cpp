@@ -36,11 +36,6 @@ HuffmanTree leaf(char c, int w){
 HuffmanTree binary(HuffmanTree a, HuffmanTree b){
     return singletonTree(weight(a) + weight(b), a, b);
 }
-// Libera toda la memoria utilizada por un árbol de Huffman.
-void deleteHuffmanTree(HuffmanTree& t){
-    delete(t);
-    //TODO: Esto está mal, debo pensar en como borrarlo por completo.
-}
 
 // Retorna el peso de un árbol de Huffman.
 // Cmplejidad: O(1)
@@ -54,6 +49,15 @@ bool isNil(HuffmanTree t){
 
 bool isLeaf(HuffmanTree t){
     return (isNil(t -> izq)) && (isNil(t -> der));
+}
+
+// Libera toda la memoria utilizada por un árbol de Huffman.
+void deleteHuffmanTree(HuffmanTree& t){
+    if(!isLeaf(t)){
+        deleteHuffmanTree(t -> izq);
+        deleteHuffmanTree(t -> der);
+    }
+    delete(t);
 }
 
 //Necesito crear una función auxiliar para poder hacer recursión recibiendo el ziptable y el bitchain por parámetro.

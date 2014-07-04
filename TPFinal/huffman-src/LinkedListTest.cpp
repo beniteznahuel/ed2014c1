@@ -9,6 +9,7 @@ void testNil(){
     assert(isNil(l));
     mkCons(1,l);
     assert(!isNil(l));
+    clear1(l);
     cout << "testNil -- OK" << endl;
 }
 
@@ -18,6 +19,7 @@ void testMkCons(){
     assert(head(l) == 1);
     mkCons(7,l);
     assert(head(l) == 7);
+    clear1(l);
     cout << "testMkCons -- OK" << endl;
 }
 
@@ -32,6 +34,7 @@ void testTkTail(){
     assert(head(l) == 8);
     tkTail(l);
     assert(head(l) == 6);
+    clear1(l);
     cout << "testTkTail -- OK" << endl;
 }
 
@@ -41,5 +44,6 @@ void testHead(){
     assert(head(l) == 1);
     mkCons(5,l);
     assert(head(l) == 5);
+    clear1(l);
     cout << "testHead -- OK" << endl;
 }

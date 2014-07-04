@@ -27,6 +27,7 @@ int size(PriorityQueue q){
 }
 
 void deletePriorityQueue(PriorityQueue& q){
+    deleteHuffmanTree(q->elements[0]);
     delete[] q->elements;
     delete(q);
 }

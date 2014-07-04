@@ -9,9 +9,7 @@
 
 using namespace std;
 
-
 typedef char* Buffer;
-
 
 // Construye una ZipTable a partir de un array de caracteres de tamaño n
 // Complejidad: O(n * log(n))
@@ -62,17 +60,16 @@ int readBuffer(char* filename, Buffer& buffer) {
 	return size;
 }
 
-
 // Libera la memoria reservada por la función readBuffer
 void deleteBuffer(Buffer& buffer) {
 	delete[] buffer;
 }
 
-
 // Lee el archivo test.txt y genera:
 // 1. La tabla de compresión test.ztb
 // 2. El archivo comprimido en binario test.comp.bin
 // 3. El archivo comprimido en texto plano test.comp.txt
+
 int main() {
 	Buffer buffer;
 	int n = readBuffer("test.txt", buffer);

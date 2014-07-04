@@ -11,9 +11,7 @@ void testEmptyCharBag(){
     assert(get(bag, 1) == 0);
     assert(get(bag, 2) == 0);
     assert(get(bag, 3) == 0);
-    assert(get(bag, 3) == 0);
-    assert(get(bag,4) == NULL);
-    assert(get(bag,5) == NULL);
+    deleteCharBag(bag);
     std::cout << "testEmptyCharBag -- OK" << std::endl;
 }
 
@@ -23,6 +21,7 @@ void testAddAndGet(){
     assert(get(bag, 0) == 1);
     add(bag, 0);
     assert(get(bag, 0) == 2);
+    deleteCharBag(bag);
     std::cout << "testAddAndGet -- OK" << std::endl;
 }
 
@@ -36,6 +35,8 @@ void testValid(){
     assert(valid(it));
     next(it);
     assert(!valid(it));
+    deleteCharBagIterator(it);
+    deleteCharBag(bag);
     std::cout << "testValid -- OK" << std::endl;
 }
 
@@ -47,6 +48,8 @@ void testCurrentCharAndNext(){
     assert(currentChar(it) == 'b');
     next(it);
     assert(currentChar(it) == 'a');
+    deleteCharBagIterator(it);
+    deleteCharBag(bag);
     std::cout << "testCurrentCharAndNext -- OK" << std::endl;
 }
 
@@ -65,5 +68,7 @@ void testCurrentCount(){
     assert(currentCount(it) == 2);
     next(it);
     assert(currentCount(it) == 3);
+    deleteCharBagIterator(it);
+    deleteCharBag(bag);
     std::cout << "testCurrentCount -- OK" << std::endl;
 }
